@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Fortinet Video Auto-Advancer",
+  "version": "1.0",
+  "description": "Automatically advances to the next video on Fortinet SCORM player when the progress bar reaches 100%.",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://training.fortinet.com/*"
+      ],
+      "js": ["content.js"],
+      "all_frames": false
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "https://training.fortinet.com/*"
+  ],
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "webNavigation"
+  ]
+}
